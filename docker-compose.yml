@@ -1,13 +1,18 @@
-version: '3.8'
-
 services:
-  frontend:
-    build: .
+  app-hub:
     container_name: app-hub
+    build: .
     ports:
-      - "5173:5173"
-    restart: unless-stopped
+      - 5173:5173
     volumes:
-      - .:/app
-    working_dir: /app
-    command: npm run dev
+      - app-hub-data:/app/data
+    restart: unless-stopped
+    networks:
+      - umbrel
+
+volumes:
+  app-hub-data:
+
+networks:
+  umbrel:
+    driver: bridge
