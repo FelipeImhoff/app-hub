@@ -6,6 +6,7 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    allowedHosts: ['umbrel.local']
+    allowedHosts: ['umbrel.local'],
+    origin: 'http://umbrel.local:5173'
   }
 });
